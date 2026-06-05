@@ -1,0 +1,11 @@
+[package]
+name = "arrowc-codegen"
+version = "0.1.0"
+edition = "2021"
+description = "Arrow schema code generation for arrowc"
+license = "MIT"
+
+[dependencies]
+arrowc-schema = { path = "../schema" }
+codegen-core = { git = "https://github.com/Shuozeli/codegen-infra.git", branch = "master" }
+heck = "0.5"

@@ -1,0 +1,11 @@
+[package]
+name = "arrowc-integration-tests"
+version = "0.1.0"
+edition = "2021"
+publish = false
+
+[dependencies]
+arrow = "58"
+parquet = { version = "58", features = ["arrow"] }
+duckdb = { version = "1.1", features = ["bundled", "parquet"] }
+tempfile = "3"

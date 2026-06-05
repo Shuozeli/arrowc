@@ -1,0 +1,23 @@
+version: 1
+schemas:
+  - name: Order
+    fields:
+      - name: id
+        type: int64
+        nullable: false
+      - name: customer
+        type: utf8
+        nullable: false
+      - name: items
+        type: "list<struct<name: utf8, qty: int32, price: float64>>"
+      - name: shipping
+        type:
+          struct:
+            - name: street
+              type: utf8
+            - name: city
+              type: utf8
+            - name: zip
+              type: utf8
+      - name: total
+        type: decimal128(10, 2)

@@ -1,0 +1,24 @@
+version: 1
+schemas:
+  - name: UserEvents
+    fields:
+      - name: user_id
+        type: utf8
+        nullable: false
+      - name: age
+        type: int32
+      - name: score
+        type: float64
+      - name: event_time
+        type: timestamp[us, UTC]
+      - name: tags
+        type: list<utf8>
+      - name: location
+        type:
+          struct:
+            - name: lat
+              type: float64
+            - name: lng
+              type: float64
+      - name: amounts
+        type: decimal128(10, 2)

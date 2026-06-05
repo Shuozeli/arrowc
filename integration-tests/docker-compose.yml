@@ -1,0 +1,7 @@
+services:
+  integration-tests:
+    build:
+      context: ..
+      dockerfile: integration-tests/Dockerfile
+    # No ports, no volumes — build-and-test only.
+    # Run with: docker compose -f integration-tests/docker-compose.yml up --build

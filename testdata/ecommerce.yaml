@@ -1,0 +1,54 @@
+version: 1
+schemas:
+  # Product catalog — tests scalars, temporal, decimal, list<utf8>,
+  # nullable struct, and null patterns across rows.
+  - name: Product
+    fields:
+      - name: id
+        type: int64
+        nullable: false
+      - name: name
+        type: utf8
+        nullable: false
+      - name: price
+        type: decimal128(10, 2)
+      - name: in_stock
+        type: boolean
+      - name: weight_kg
+        type: float64
+      - name: created_at
+        type: timestamp[us, UTC]
+      - name: tags
+        type: list<utf8>
+      - name: dimensions
+        type: "struct<length_cm: float64, width_cm: float64, height_cm: float64>"
+
+  # Sales ledger — tests list<struct>, date32, nested struct,
+  # decimal with higher precision, and multi-item lists.
+  - name: Sale
+    fields:
+      - name: sale_id
+        type: int64
+        nullable: false
+      - name: customer_name
+        type: utf8
+        nullable: false
+      - name: sale_date
+        type: date32
+      - name: items
+        type: "list<struct<product_id: int64, quantity: int32, unit_price: float64>>"
+      - name: shipping_address
+        type:
+          struct:
+            - name: street
+              type: utf8
+            - name: city
+              type: utf8
+            - name: state
+              type: utf8
+            - name: zip
+              type: utf8
+      - name: total_amount
+        type: decimal128(12, 2)
+      - name: notes
+        type: utf8

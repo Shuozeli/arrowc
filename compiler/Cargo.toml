@@ -1,0 +1,16 @@
+[package]
+name = "arrowc"
+version = "0.1.0"
+edition = "2021"
+description = "Arrow schema compiler -- generates strongly-typed code from JSON/YAML schema declarations"
+license = "MIT"
+
+[[bin]]
+name = "arrowc"
+path = "src/main.rs"
+
+[dependencies]
+arrowc-schema = { path = "../schema" }
+arrowc-codegen = { path = "../codegen" }
+clap = { version = "4", features = ["derive"] }
+thiserror = "2"
